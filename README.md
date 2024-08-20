@@ -1,4 +1,4 @@
-### EL ESTANCIERO, THE GAME
+# EL ESTANCIERO, THE GAME
 
 I am proud to present "The Estanciero," a digital adaptation of the classic Argentine board game. "El Estanciero" is
 similar to Monopoly, where players buy and trade properties, develop them with houses and hotels, and collect rent from
