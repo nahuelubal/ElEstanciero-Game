@@ -1,0 +1,61 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- JDBC Database connection settings -->
+        <property name="connection.driver_class">org.h2.Driver</property>
+        <!-- <property name="connection.url">jdbc:h2:mem:test</property> -->
+        <property name="connection.url">jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;INIT=RUNSCRIPT FROM 'classpath:data.sql'
+        </property>
+        <property name="connection.username">sa</property>
+        <property name="connection.password"></property>
+        <!-- JDBC connection pool settings ... using built-in test pool -->
+        <property name="connection.pool_size">1</property>
+        <!-- Select our SQL dialect
+        <property name="dialect">org.hibernate.dialect.H2Dialect</property>-->
+        <!-- WARN org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default) -->
+        <!-- Echo the SQL to stdout -->
+        <property name="show_sql">false</property>
+        <!-- Set the current session context -->
+        <property name="current_session_context_class">thread</property>
+        <!-- Drop and re-create the database schema on startup
+        <property name="hbm2ddl.auto">create-drop</property>-->
+        <property name="hbm2ddl.auto">update</property>
+        <!-- dbcp connection pool configuration -->
+        <property name="hibernate.dbcp.initialSize">5</property>
+        <!-- Data Base Connection Pool -->
+        <property name="hibernate.dbcp.maxTotal">20</property>
+        <property name="hibernate.dbcp.maxIdle">10</property>
+        <property name="hibernate.dbcp.minIdle">5</property>
+        <property name="hibernate.dbcp.maxWaitMillis">-1</property>
+        <!-- Card -->
+        <mapping class="ar.edu.utn.frc.tup.lciii.entities.card.CardEntity"/>
+        <mapping class="ar.edu.utn.frc.tup.lciii.entities.card.CardsByDeckEntity"/>
+        <mapping class="ar.edu.utn.frc.tup.lciii.entities.card.CardTypeEntity"/>
+        <mapping class="ar.edu.utn.frc.tup.lciii.entities.card.DeckOfCardEntity"/>
+        <!-- Box -->
+        <mapping class="ar.edu.utn.frc.tup.lciii.entities.box.BoxEntity"/>
+        <mapping class="ar.edu.utn.frc.tup.lciii.entities.box.BoxTypeEntity"/>
+        <mapping class="ar.edu.utn.frc.tup.lciii.entities.box.TaxEntity"/>
+        <!-- Config -->
+        <mapping class="ar.edu.utn.frc.tup.lciii.entities.config.BankEntity"/>
+        <mapping class="ar.edu.utn.frc.tup.lciii.entities.config.ColorEntity"/>
+        <mapping class="ar.edu.utn.frc.tup.lciii.entities.config.DifficultyEntity"/>
+        <mapping class="ar.edu.utn.frc.tup.lciii.entities.config.GameEntity"/>
+        <mapping class="ar.edu.utn.frc.tup.lciii.entities.config.GameStyleEntity"/>
+        <mapping class="ar.edu.utn.frc.tup.lciii.entities.config.StyleByProvinceEntity"/>
+        <mapping class="ar.edu.utn.frc.tup.lciii.entities.config.TurnEntity"/>
+        <!-- Deeds -->
+        <mapping class="ar.edu.utn.frc.tup.lciii.entities.deeds.CompanyEntity"/>
+        <mapping class="ar.edu.utn.frc.tup.lciii.entities.deeds.DeedByPlayerEntity"/>
+        <mapping class="ar.edu.utn.frc.tup.lciii.entities.deeds.DeedEntity"/>
+        <mapping class="ar.edu.utn.frc.tup.lciii.entities.deeds.ProvinceEntity"/>
+        <mapping class="ar.edu.utn.frc.tup.lciii.entities.deeds.RailwayEntity"/>
+        <mapping class="ar.edu.utn.frc.tup.lciii.entities.deeds.ZoneEntity"/>
+        <!-- Player -->
+        <mapping class="ar.edu.utn.frc.tup.lciii.entities.player.PlayerEntity"/>
+        <!-- User -->
+        <mapping class="ar.edu.utn.frc.tup.lciii.entities.user.UserEntity"/>
+    </session-factory>
+</hibernate-configuration>
